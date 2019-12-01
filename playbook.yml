@@ -20,11 +20,11 @@
     - name: Set up a stable docker repository
       command: yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
     - name: Install docker packages
-        yum:
-          name:
-            - docker-ce
-            - docker-ce-cli
-            - contairned.io
+      yum:
+        name:
+          - docker-ce
+          - docker-ce-cli
+          - contairned.io
           state: present
      - name: Start Docker daemon
        service:
