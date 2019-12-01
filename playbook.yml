@@ -39,6 +39,8 @@
         name:
           - gdown
           - docker-compose
+    - name: download jenkins project files
+        command: gdown https://drive.google.com/cu?id=1IsmZeQMKQ952TeKM7ggWlfx_0stsoJPn -O /opt/
 
 
 
