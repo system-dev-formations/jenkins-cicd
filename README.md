@@ -73,6 +73,14 @@ docker-compose up -d
 ```
 
 
+# Sauvegarder votre plateforme
+Dans votre repo jenkis-cicd sous le prompt venv.  
+Faire   
+```jsunicoderegexp
+docker-compose down 
+sudo rm /opt/jks.tgz
+sudo tar -cvzf /opt/jks.tgz /opt/jks
+```
 
 
 
