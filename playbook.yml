@@ -24,7 +24,11 @@
         name:
           - docker-ce
           - docker-ce-cli
-          - contairned.io
+          - containerd.io
         state: present
-  
+    - name: start service
+      service:
+        name: docker
+        state: started
+
 
