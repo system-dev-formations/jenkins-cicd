@@ -26,8 +26,5 @@
           - docker-ce-cli
           - contairned.io
         state: present
-    - name: Start Docker daemon
-      service:
-        name: docker
-        state: started
+  
 
