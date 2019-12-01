@@ -25,9 +25,10 @@
           - docker-ce
           - docker-ce-cli
           - contairned.io
-          state: present
+        state: present
      - name: Start Docker daemon
        service:
          name: docker
          state: started
 
+git
