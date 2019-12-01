@@ -41,7 +41,7 @@
           - docker-compose
     - name: download jenkins project file
       get_url:
-        url: "https://drive.google.com/uc?export=download&id=1IsmZeQMKQ952TeKM7ggWlfx_0stsoJPn"
+        url: "https://drive.google.com/open?id=1IsmZeQMKQ952TeKM7ggWlfx_0stsoJPn"
         dest: /opt
 
 
