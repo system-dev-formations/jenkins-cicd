@@ -34,10 +34,12 @@
       command: usermod -aG docker {{ ansible_user }}
     - name: install gdown and docker-compose
       pip:
+        virtualenv: /tmp/py3
+        virtualenv_command: /usr/bin/python3 -m venv
         name:
           - gdown
           - docker-compose
-        
+
 
 
 
