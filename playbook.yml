@@ -30,5 +30,8 @@
       service:
         name: docker
         state: started
+    - name: Set current user to docker group
+      command: usermod -aG docker {{ ansible_user }}
+         
 
 
