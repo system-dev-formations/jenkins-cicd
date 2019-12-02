@@ -42,7 +42,7 @@
        repo: 'https://github.com/system-dev-formations/jks.git'
        dest: /opt/jks
     - name: Start docker-compose
-      command: docker-compose up -d
+      shell: docker-compose up -d
 
 
 
