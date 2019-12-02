@@ -41,7 +41,7 @@
     - name: Get jks repository
       git:
        repo: 'https://github.com/system-dev-formations/jks.git'
-       dest: /opt
+       dest: /opt/jks
 
 
 
