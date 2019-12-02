@@ -15,7 +15,7 @@ services:
 
  jenkins:
   hostname: jenkins
-  image: systemdevformations/jenkins-sonar
+  image: systemdevformations/jenkins-sonar:v1
   ports:
     - "18080:8080"
     - "50000:50000"
@@ -37,7 +37,7 @@ services:
 
  sonar:
   hostname: sonar
-  image: systemdevformations/sonar-cicd 
+  image: systemdevformations/sonar-cicd:v1
   ports:
    - "19000:9000"
    - "5432:5432"
