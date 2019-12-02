@@ -32,12 +32,11 @@
         state: started
     - name: Set current user to docker group
       command: usermod -aG docker {{ ansible_user }}
-    - name: install gdown and docker-compose
-      pip:
-        virtualenv: /tmp/py3
-        virtualenv_command: /usr/bin/python3 -m venv
-        name:
-          - docker-compose
+    - name: install docker-compose
+      get_url:
+        url: https://github.com/docker/compose/releases/download/1.25.0/docker-compose-Linux-x86_64
+        dest: /usr/local/bin
+        mode: '0775'
     - name: Get jks repository
       git:
        repo: 'https://github.com/system-dev-formations/jks.git'
