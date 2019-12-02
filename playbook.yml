@@ -37,12 +37,12 @@
         virtualenv: /tmp/py3
         virtualenv_command: /usr/bin/python3 -m venv
         name:
-          - gdown
           - docker-compose
-    - name: download jenkins project file
-      get_url:
-        url: "https://drive.google.com/open?id=1IsmZeQMKQ952TeKM7ggWlfx_0stsoJPn"
-        dest: /opt
+    - name: Get jks repository
+      git:
+       repo: 'https://github.com/system-dev-formations/jks.git'
+       dest: /opt
+
 
 
 
