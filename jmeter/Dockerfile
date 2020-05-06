@@ -37,7 +37,7 @@ COPY entrypoint.sh /
 
 WORKDIR	${JMETER_HOME}
 
-VOLUME /opt/scripts
-VOLUME /opt/results
+VOLUME /opt/jmeter/scripts
+VOLUME /opt/jmeter/results
 
 #ENTRYPOINT ["/entrypoint.sh"]

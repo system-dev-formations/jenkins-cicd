@@ -69,8 +69,8 @@ services:
   build: ./jmeter
   #image: systemdevformations/jmeter-cicd
   volumes:
-    - /opt/jmeter/results:/results
-    - /opt/jmeter/scripts:/scripts
+    - /opt/jmeter/results:/opt/jmeter/results
+    - /opt/jmeter/scripts:/opt/jmeter/scripts
 
  gitlab-ce:
   hostname: gitlab-ce
