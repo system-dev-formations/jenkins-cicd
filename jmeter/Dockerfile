@@ -39,5 +39,4 @@ WORKDIR	${JMETER_HOME}
 
 VOLUME /opt/jmeter/scripts
 VOLUME /opt/jmeter/results
-
-#ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
