@@ -62,10 +62,14 @@ services:
     - /opt/postgres/data:/var/lib/postgresql/data
 
  jmeter:
-  hostname: jmeter
-  networks:
-    - prodnetwork
-  image: systemdevformations/jmeter
+   hostname: jmeter
+   command: tail -f /dev/null
+   networks:
+     - prodnetwork
+   image: systemdevformations/jmeter-cicd
+   volumes:
+     - /opt/jmeter/results:/results
+     - /opt/jmeter/scripts:/scripts
 
 
  gitlab-ce:
