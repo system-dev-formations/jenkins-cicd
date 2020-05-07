@@ -65,11 +65,8 @@ services:
   hostname: jmeter
   networks:
     - prodnetwork
-  build: ./jmeter
-  #image: systemdevformations/jmeter-cicd
-  volumes:
-    - /opt/jmeter/results:/opt/jmeter/results
-    - /opt/jmeter/scripts:/opt/jmeter/scripts
+  image: systemdevformations/jmeter
+
 
  gitlab-ce:
   hostname: gitlab-ce
