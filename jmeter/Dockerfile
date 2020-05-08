@@ -6,7 +6,7 @@ MAINTAINER modified by HMeftah <dockerlite@gmail.com> initialed by Just van den 
 
 ARG JMETER_VERSION="5.2.1"
 ENV JMETER_HOME /opt/apache-jmeter-${JMETER_VERSION}
-ENV	JMETER_BIN	${JMETER_HOME}/bin
+ENV	JMETER_BIN	/jmeter/bin
 ENV	JMETER_DOWNLOAD_URL  https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-${JMETER_VERSION}.tgz
 
 # Install extra packages
@@ -24,6 +24,8 @@ RUN apk update \
 	&& cd / \
 	&& wget -O jmeter.tgz $JMETER_DOWNLOAD_URL \
 	&& tar -zxvf jmeter.tgz
+	&& mv apache-jmeter-${JMETER_VERSION} jmeter
+	&& rm jmeter.tgz
 	#&& curl -L --silent ${JMETER_DOWNLOAD_URL} >  /tmp/dependencies/apache-jmeter-${JMETER_VERSION}.tgz  \
 	##&& mkdir -p /opt  \
 	##&& tar -xzf /tmp/dependencies/apache-jmeter-${JMETER_VERSION}.tgz -C /opt  \
