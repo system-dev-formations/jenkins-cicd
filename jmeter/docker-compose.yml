@@ -26,9 +26,9 @@ services:
 
  jmeter:
    hostname: jmeter
-   build: ./jmeter
+   build: .
    networks:
-     - prodnetwork
+     - jmeter_network
    volumes:
      - jmeter_dir:/jmeter
      - /opt/jmeter/results:/results
