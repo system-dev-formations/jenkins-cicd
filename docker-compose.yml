@@ -1,5 +1,8 @@
 version: '2'
 
+volumes:
+  jmeter_bin:
+
 networks:
   prodnetwork:
     driver: bridge
@@ -63,11 +66,11 @@ services:
 
  jmeter:
    hostname: jmeter
-   command: tail -f /dev/null
+   build: ./jmeter
    networks:
      - prodnetwork
-   image: systemdevformations/jmeter-cicd
    volumes:
+     - jmeter_bin:/
      - /opt/jmeter/results:/results
      - /opt/jmeter/scripts:/scripts
 
