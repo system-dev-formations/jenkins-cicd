@@ -1,7 +1,7 @@
 version: '3.5'
 
 volumes:
-  jmeter_bin:
+  jmeter_dir:
 
 networks:
   jmeter_network:
@@ -20,6 +20,7 @@ services:
     - /var/run/docker.sock:/var/run/docker.sock
     - /usr/bin/docker:/usr/bin/docker
     - /opt/jks/:/var/jenkins_home
+    - jmeter_dir:/jmeter
   depends_on:
     - jmeter
 
@@ -29,7 +30,7 @@ services:
    networks:
      - prodnetwork
    volumes:
-     - jmeter_bin:/
+     - jmeter_dir:/jmeter
      - /opt/jmeter/results:/results
      - /opt/jmeter/scripts:/scripts
 
