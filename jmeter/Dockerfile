@@ -5,7 +5,7 @@ FROM alpine:3.11
 MAINTAINER modified by HMeftah <dockerlite@gmail.com> initialed by Just van den Broecke<just@justobjects.nl>
 
 ARG JMETER_VERSION="5.2.1"
-ENV JMETER_HOME /opt/apache-jmeter-${JMETER_VERSION}
+ENV JMETER_HOME  /jmeter
 ENV	JMETER_BIN	/jmeter/bin
 ENV	JMETER_DOWNLOAD_URL  https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-${JMETER_VERSION}.tgz
 
@@ -26,7 +26,7 @@ RUN apk update \
 	&& tar -zxvf jmeter.tgz \
 	&& mv apache-jmeter-${JMETER_VERSION} jmeter \
 	&& rm jmeter.tgz
-	
+
 
 # TODO: plugins (later)
 # && unzip -oq "/tmp/dependencies/JMeterPlugins-*.zip" -d $JMETER_HOME
