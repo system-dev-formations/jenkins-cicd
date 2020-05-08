@@ -13,7 +13,7 @@ ENV	JMETER_DOWNLOAD_URL  https://archive.apache.org/dist/jmeter/binaries/apache-
 # See https://github.com/gliderlabs/docker-alpine/issues/136#issuecomment-272703023
 # Change TimeZone TODO: TZ still is not set!
 ARG TZ="Europe/Amsterdam"
-RUN    apk update \
+RUN apk update \
 	&& apk upgrade \
 	&& apk add ca-certificates \
 	&& update-ca-certificates \
@@ -21,10 +21,14 @@ RUN    apk update \
 	&& apk add --no-cache nss \
 	&& rm -rf /var/cache/apk/* \
 	&& mkdir -p /tmp/dependencies  \
-	&& curl -L --silent ${JMETER_DOWNLOAD_URL} >  /tmp/dependencies/apache-jmeter-${JMETER_VERSION}.tgz  \
-	&& mkdir -p /opt  \
-	&& tar -xzf /tmp/dependencies/apache-jmeter-${JMETER_VERSION}.tgz -C /opt  \
-	&& rm -rf /tmp/dependencies
+	&& cd / \
+	&& wget -O jmeter.tgz $JMETER_DOWNLOAD_URL \
+	&& tar -zxvf jmeter.tgz
+	#&& curl -L --silent ${JMETER_DOWNLOAD_URL} >  /tmp/dependencies/apache-jmeter-${JMETER_VERSION}.tgz  \
+	##&& mkdir -p /opt  \
+	##&& tar -xzf /tmp/dependencies/apache-jmeter-${JMETER_VERSION}.tgz -C /opt  \
+	##&&
+	##&& rm -rf /tmp/dependencies
 
 # TODO: plugins (later)
 # && unzip -oq "/tmp/dependencies/JMeterPlugins-*.zip" -d $JMETER_HOME
@@ -33,7 +37,5 @@ RUN    apk update \
 ENV PATH $PATH:$JMETER_BIN
 
 # Entrypoint has same signature as "jmeter" command
-COPY entrypoint.sh /
-
+# COPY entrypoint.sh /
 WORKDIR	${JMETER_HOME}
-CMD ["tail -f /dev/null"]
